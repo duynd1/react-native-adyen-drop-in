@@ -146,7 +146,7 @@ public class AdyenDropInPayment extends ReactContextBaseJavaModule {
                         .build();
         this.cardConfiguration = cardConfiguration;
         Intent resultIntent = new Intent(this.getCurrentActivity(), this.getCurrentActivity().getClass());
-        resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        resultIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.dropInConfiguration = new DropInConfiguration.Builder(this.getCurrentActivity(), resultIntent, AdyenDropInPaymentService.class).addCardConfiguration(cardConfiguration).build();
         JSONObject jsonObject = null;
         try {
