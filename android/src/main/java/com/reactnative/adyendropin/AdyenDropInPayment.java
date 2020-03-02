@@ -64,7 +64,7 @@ public class AdyenDropInPayment extends ReactContextBaseJavaModule {
     static Map<String, BaseActionComponent> ACTION_COMPONENT_MAP = new ConcurrentHashMap<>();
     public static AdyenDropInPaymentService dropInService;
     public static AdyenDropInPayment INSTANCE = null;
-
+    public static boolean CHECK = false;
 
     public AdyenDropInPayment(@NonNull ReactApplicationContext reactContext) {
         super(reactContext);
@@ -162,6 +162,7 @@ public class AdyenDropInPayment extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 DropIn.startPayment(adyenDropInPayment.getCurrentActivity(), paymentMethodsApiResponse, dropInConfiguration);
+                CHECK = true;
             }
         });
 
