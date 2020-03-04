@@ -417,6 +417,7 @@ public class AdyenDropInPayment extends ReactContextBaseJavaModule {
 
     public void handlePaymentSubmit(PaymentComponentState paymentComponentState) {
         if (paymentComponentState.isValid()) {
+            CHECK=false;
             WritableMap eventData = new WritableNativeMap();
             WritableMap data = new WritableNativeMap();
             PaymentMethodDetails paymentMethodDetails = paymentComponentState.getData().getPaymentMethod();
