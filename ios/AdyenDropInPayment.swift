@@ -46,7 +46,7 @@ extension AdyenDropInPayment: DropInComponentDelegate {
     configuration = DropInComponent.PaymentMethodsConfiguration()
     configuration?.card.publicKey = publicKey
     self.publicKey = publicKey
-    configuration?.card.showsStorePaymentMethodField = true
+    configuration?.card.showsStorePaymentMethodField = false
     configuration?.card.showsHolderNameField = true
     envName = env
     switch env {
