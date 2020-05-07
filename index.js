@@ -2,7 +2,7 @@ import { NativeEventEmitter, NativeModules } from "react-native";
 
 const AdyenDropIn = NativeModules.AdyenDropInPayment;
 const EventEmitter = new NativeEventEmitter(AdyenDropIn);
-const eventMap = {};
+let eventMap = {};
 let onPaymentProvideListener;
 let onPaymentFailListener;
 let onPaymentSubmitListener;
@@ -176,6 +176,9 @@ export default {
   },
   events: EventEmitter,
   removeListeners() {
+    eventMap = {};
+    EventEmitter.removeAllListeners('onPaymentSubmit')
+    EventEmitter.removeAllListeners('onPaymentFail')
     if (onPaymentProvideListener) {
       EventEmitter.removeListener(onPaymentProvideListener);
     }
